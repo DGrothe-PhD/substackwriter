@@ -24,7 +24,6 @@ function prettify(){
     }
   }
   outputArea.innerHTML = "<p>" + linewise.join("");
-	console.log("<p>" + linewise.join(""));
 }
 
 function copyText() {
@@ -43,4 +42,9 @@ function copyText() {
   }
 
   feedback.innerHTML = "✔️ Copied!";
+}
+
+function clearAll(){
+  inputArea.value = "";
+  outputArea.innerHTML = "";
 }
