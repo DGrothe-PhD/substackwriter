@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A lightweight tool formatting self-written blog posts taking care of linebreaks" />
+  <meta name="keywords" content="Substack, blog post, linebreaks, mobile writing, lightweight tool" />
+  <title>Substack writing formatter</title>
+  <link rel="stylesheet" href="./styles/indexstyle.css">
+</head>
+<body>
+  <header>
+    <h1>Blog post formatting tool</h1>
+    <nav>
+    <a href="https://github.com/DGrothe-PhD/substackwriter">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+  <h1>Tool</h1>
+  <p>⚠️ Note! The text here is not stored anywhere. So please be sure to copy into clipboard of your device before closing or reloading the page.</p>
+  <button onClick="prettify();">Prettify</button><span style="padding:1ex;">&nbsp;</span>
+  <button onclick="copyText()">Copy text</button>
+  <span id="feedback">Ich hier.</span>
+  <div class="flex-parent">
+  <div class="card flex-child">
+  <textarea class="area" id="userinput" placeholder="Type here...;" rows="20" ></textarea>
+    </div>
+  <div class="card flex-child" id="output"><p>nothingness</p>
+  </div>
+  </div>
+  </main>
+
+  <footer>
+    &copy; 2026 D. Grothe
+  </footer>
+</body>
+<script src="./formatter.js"></script>
+</html>
