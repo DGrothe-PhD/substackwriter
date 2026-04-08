@@ -48,3 +48,22 @@ function clearAll(){
   inputArea.value = "";
   outputArea.innerHTML = "";
 }
+
+function removeEmptyLines(){
+  let newBlogDraft = inputArea.value;
+  let linewise = newBlogDraft.split(/\r\n|\r|\n/);
+  
+  for(let x in linewise){
+    if(x == linewise.length -1){
+      linewise[x] += "</p>";
+      break;
+    }
+    if(linewise[x] === ""){
+      continue;
+    }
+    else{
+      linewise[x] += "<br>";
+    }
+  }
+  outputArea.innerHTML = "<p>" + linewise.join("");
+}
