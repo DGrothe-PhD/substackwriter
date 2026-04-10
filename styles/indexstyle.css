@@ -48,6 +48,28 @@ nav a:hover {
   }
 }
 
+button{
+  border-radius: 7px;
+  padding: 0.5em;
+}
+
+#prettify {background-color: seagreen;}
+#copy {background-color: limegreen;}
+#removeEmpty {background-color: GoldenRod;}
+#clearAll {background-color: IndianRed;}
+
+.grid{
+  display: grid;
+  border: 2px solid #888;
+  border-radius: 11px;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: papayawhip;
+  justify-content: space-between;
+  gap: 1rem 3rem;
+  margin-top: 0.5rem;
+  padding: 20px;
+}
+
 .flex-parent {
   display: flex;
   padding: 20px;
@@ -67,8 +89,7 @@ nav a:hover {
   border-radius: 17px;
   /*width: 30%;*/
   max-width: 50vw;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-inline: 1em;
   background-color: transparent;
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0), rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.17));

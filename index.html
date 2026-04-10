@@ -19,13 +19,17 @@
   <main>
   <h1>Tool</h1>
   <p>⚠️ Note! The text here is not stored anywhere. So please be sure to copy into clipboard of your device before closing or reloading the page.</p>
-  <button onClick="prettify();">Prettify</button><span style="padding:1ex;">&nbsp;</span>
-  <button onClick="removeEmptyLines();">Remove empty lines</button><br>
-  <button onclick="copyText()">Copy text</button><span style="padding:1ex;">&nbsp;</span>
-  <button onclick="clearAll()">Clear All</button>
-  <span id="feedback"></span>
   <div class="flex-parent">
   <div class="card flex-child">
+    <div class="grid">
+      <button id="prettify" onClick="prettify();">Prettify</button><!--<span style="padding:1ex;">&nbsp;</span>-->
+      <button id="removeEmpty" onClick="removeEmptyLines();">Remove empty lines</button>
+      <button id="copy" onclick="copyText()">Copy text</button><!--<span style="padding:1ex;">&nbsp;</span>-->
+      <button id="clearAll" onclick="clearAll()">Clear All</button>
+    </div><br>
+    <span id="feedback"></span>
+  <!--<div class="flex-parent">
+  <div class="card flex-child">-->
   <textarea class="area" id="userinput" placeholder="Type here...;" rows="20" ></textarea>
     </div>
   <div class="card flex-child" id="output"><p>nothingness</p>
