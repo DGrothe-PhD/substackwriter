@@ -12,6 +12,13 @@ A blog post on your own website,
 a Word or Pages file to send somewhere  
 or … even a substack post.
 
+## What it does
+
+* Paste a text
+* Prettify it, that means, let linebreaks be formatted as html `<br>`, empty lines start a next paragraph.
+* Now "copy to clipboard" and you're ready to publish your blog (after proofreading, as even apps are "only human" and can make mistakes).
+* finally "Clear All" to be ready for the next text.
+
 ## Not reinventing the wheel.
 
 I tested the following:
