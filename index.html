@@ -10,7 +10,11 @@
 </head>
 <body>
   <header>
-    <h1>Blog post formatting tool</h1>
+    <h1 id="presenting">Blog post formatting tool</h1>
+    <nav id="lang-switcher">
+      <button onclick="switchLang('de')" id="btn-de">DE</button>
+      <button onclick="switchLang('en')" id="btn-en">EN</button>
+    </nav>
     <nav>
     <a href="https://github.com/DGrothe-PhD/substackwriter">GitHub</a>
     </nav>
@@ -40,6 +44,13 @@
   <footer>
     &copy; 2026 D. Grothe
   </footer>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/25.5.2/i18next.min.js"></script>-->
+    <script>
+      if (typeof i18next === 'undefined') {
+        document.write('<script src="./libs/cloudflare_i18next.min.js"><\/script>');
+      }
+    </script>
+    <script src="./js/i18n-init.js"></script>
 </body>
 <script src="./formatter.js"></script>
 </html>
