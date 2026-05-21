@@ -1,7 +1,9 @@
 const lang = navigator.language.startsWith("de") ? "de" : "en";
 
 function updateContent() {
-  document.getElementById("presenting").textContent = i18next.t("title");
+  document.getElementById("title").textContent = i18next.t("title");
+  document.getElementById("headline").textContent = i18next.t("headline");
+  document.getElementById("advice").textContent = i18next.t("advice");
   //document.querySelector("h1").textContent         = i18next.t("title");
   //document.querySelector("p.intro").textContent    = i18next.t("intro");
   //document.querySelector("footer p").textContent   = i18next.t("footer");
