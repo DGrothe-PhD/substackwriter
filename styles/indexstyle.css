@@ -1,3 +1,7 @@
+:root {
+  --bgTitle: #f26e6c;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -11,7 +15,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 1em 0 0;
-  background-color: IndianRed;
+  background-color: var(--bgTitle);
 }
 
 #lang-switcher {
@@ -55,18 +59,26 @@ nav a:hover {
 
 button{
   border-radius: 7px;
-  padding: 0.5em;
-  background-color: papayawhip;
+  border: 2px solid #222;
+  padding: 0.5em 0.7em;
+  background-color: #f8f4ea;
+  color: black;
+  font-weight: bold;
 }
 
 #lang-switcher button.active {
-  background-color: seagreen;
+  background-color: #5f8f5f;
+  margin-right: 1px;
+  color: white;
+  transform: translate(-1px, -1px);
+  box-shadow:
+    2px 4px 2px rgba(0,0,0,0.45);
 }
 
-#prettify {background-color: seagreen;}
-#copy {background-color: limegreen;}
-#removeEmpty {background-color: GoldenRod;}
-#clearAll {background-color: IndianRed;}
+#prettify {background-color: #8fbc8f;}
+#copy {background-color: #32cd32;}
+#removeEmpty {background-color: #daa520;}
+#clearAll {background-color: var(--bgTitle);}
 
 .grid{
   display: grid;
