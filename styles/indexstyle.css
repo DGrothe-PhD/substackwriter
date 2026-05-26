@@ -24,6 +24,11 @@ header {
   transform: translateX(-50%);
 }
 
+#toggle-btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 @supports (view-transition-name: none) {
   @view-transition {
     navigation: auto;
@@ -55,6 +60,7 @@ nav a:hover {
   card{
     max-width: 90vw;
   }
+
 }
 
 button{
@@ -95,22 +101,24 @@ button{
 
 .flex-parent {
   display: flex;
-  padding: 20px;
+  padding: 10px;
   margin-right: 3rem;
   gap: 2rem;
   flex-wrap: wrap;
 }
 
+/*.flex-parent.spaced{
+  justify-content: space-around;
+}*/
+
 .flex-child {
-  flex: 1 1 250px;
-  /*padding: 10px;*/
-  justify-content: space-between;
+  flex: 0 1 auto;
+  width: 100%;
 }
 
 .card{
   border: 2px solid #888;
   border-radius: 17px;
-  /*width: 30%;*/
   max-width: 50vw;
   padding-inline: 1em;
   background-color: transparent;

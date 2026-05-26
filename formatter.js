@@ -3,8 +3,23 @@ const inputArea = document.getElementById("userinput");
 const outputArea = document.getElementById("output");
 const feedback = document.getElementById("feedback");
 
+const btn = document.getElementById('toggle-btn');
+const flexParent = document.querySelector(".flex-parent");
+const icons = { left: 'align-left', 'space-around': 'align-justify' };
+let current = 'left';
+lucide.createIcons();
+
+
+function togglePage(){
+  current = current === 'left' ? 'space-around' : 'left';
+  flexParent.style.justifyContent = current;
+  btn.innerHTML = `<i data-lucide="${icons[current]}"></i>`;
+  lucide.createIcons();
+}
+
 function prettify(){
   let newBlogDraft = inputArea.value;
+  inputArea.setAttribute("rows", 3);
   let linewise = newBlogDraft.split(/\r\n|\r|\n/);
   
   for(let x in linewise){

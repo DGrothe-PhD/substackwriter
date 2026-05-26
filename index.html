@@ -7,6 +7,7 @@
   <meta name="keywords" content="Substack, blog post, linebreaks, mobile writing, lightweight tool" />
   <title>Substack writing formatter</title>
   <link rel="stylesheet" href="./styles/indexstyle.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <header>
@@ -14,6 +15,11 @@
     <nav id="lang-switcher">
       <button onclick="switchLang('de')" id="btn-de">DE</button>
       <button onclick="switchLang('en')" id="btn-en">EN</button>
+    </nav>
+    <nav>
+      <button id="toggle-btn" onClick="togglePage();">
+        <i data-lucide="align-left"></i>
+      </button>
     </nav>
     <nav>
     <a href="https://github.com/DGrothe-PhD/substackwriter">GitHub</a>
@@ -24,18 +30,16 @@
   <h1 id="headline"></h1>
   <p id="advice"></p>
   <div class="flex-parent">
-  <div class="card flex-child">
+  <div class="card flex-child" >
     <div class="grid">
-      <button id="prettify" onClick="prettify();">Prettify</button><!--<span style="padding:1ex;">&nbsp;</span>-->
+      <button id="prettify" onClick="prettify();">Prettify</button>
       <button id="removeEmpty" onClick="removeEmptyLines();">Remove empty lines</button>
-      <button id="copy" onclick="copyText()">Copy text</button><!--<span style="padding:1ex;">&nbsp;</span>-->
+      <button id="copy" onclick="copyText()">Copy text</button>
       <button id="clearAll" onclick="clearAll()">Clear All</button>
     </div><br>
     <span id="feedback"></span>
-  <!--<div class="flex-parent">
-  <div class="card flex-child">-->
-  <textarea class="area" id="userinput" placeholder="Type here...;" rows="20" ></textarea>
-    </div>
+    <textarea class="area" id="userinput" placeholder="Type here...;" rows="20" ></textarea>
+  </div>
   <div class="card flex-child" id="output"><p>nothingness</p>
   </div>
   </div>
