@@ -82,7 +82,7 @@ button{
 }
 
 #prettify {background-color: #8fbc8f;}
-#copy {background-color: #32cd32;}
+#copyText {background-color: #32cd32;}
 #removeEmpty {background-color: #daa520;}
 #clearAll {background-color: var(--bgTitle);}
 
