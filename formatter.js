@@ -43,8 +43,10 @@ function prettify(){
 
 function copyText() {
   feedback.innerHTML = "";
-
-  if (outputArea) {
+  try{
+    if(!outputArea){
+      return;
+    }
     const range = document.createRange();
     range.selectNodeContents(outputArea);
     const sel = window.getSelection();
@@ -52,16 +54,18 @@ function copyText() {
     sel.addRange(range);
     document.execCommand("copy");
     sel.removeAllRanges();
-  } else {
+    feedback.innerHTML = "✔️ Copied!";
+    inputArea.setAttribute("rows", 3);
+  }
+  catch(error){
     feedback.innerHTML = "Oopsi.";
   }
-
-  feedback.innerHTML = "✔️ Copied!";
 }
 
 function clearAll(){
   inputArea.value = "";
   outputArea.innerHTML = "";
+  inputArea.setAttribute("rows", 20);
 }
 
 function removeEmptyLines(){
@@ -81,4 +85,5 @@ function removeEmptyLines(){
     }
   }
   outputArea.innerHTML = "<p>" + linewise.join("");
+  inputArea.setAttribute("rows", 3);
 }
