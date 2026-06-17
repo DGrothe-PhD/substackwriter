@@ -47,6 +47,17 @@ nav a:hover {
 }
 
 @media (max-width: 600px) {
+  #lang-switcher {
+    position: static;
+    transform: none;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  header {
+    flex-wrap: wrap;
+  }
+  
   nav {
     margin-top: 0.5rem;
     width: 100%;
