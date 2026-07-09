@@ -30,6 +30,7 @@ function prettify(){
   let linewise = newBlogDraft.split(/\r\n|\r|\n/);
   
   for(let x in linewise){
+    linewise[x] = escapeHtml(linewise[x]);
     if(x == linewise.length -1){
       linewise[x] += "</p>";
       break;
@@ -45,7 +46,7 @@ function prettify(){
       linewise[x] += "<br>";
     }
   }
-  outputArea.innerHTML = escapeHtml("<p>" + linewise.join(""));
+  outputArea.innerHTML = "<p>" + linewise.join("");
 }
 
 function copyText() {
@@ -80,6 +81,7 @@ function removeEmptyLines(){
   let linewise = newBlogDraft.split(/\r\n|\r|\n/);
   
   for(let x in linewise){
+    linewise[x] = escapeHtml(linewise[x]);
     if(x == linewise.length -1){
       linewise[x] += "</p>";
       break;
@@ -91,6 +93,6 @@ function removeEmptyLines(){
       linewise[x] += "<br>";
     }
   }
-  outputArea.innerHTML = escapeHtml("<p>" + linewise.join(""));
+  outputArea.innerHTML = "<p>" + linewise.join("");
   inputArea.setAttribute("rows", 3);
 }
