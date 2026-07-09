@@ -17,6 +17,13 @@ function togglePage(){
   lucide.createIcons();
 }
 
+function escapeHtml(text) {
+  const map = { '&': '&amp;',
+     '<': '&lt;', '>': '&gt;',
+     '"': '&quot;', "'": '&#039;' };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
 function prettify(){
   let newBlogDraft = inputArea.value;
   inputArea.setAttribute("rows", 3);
@@ -38,7 +45,7 @@ function prettify(){
       linewise[x] += "<br>";
     }
   }
-  outputArea.innerHTML = "<p>" + linewise.join("");
+  outputArea.innerHTML = escapeHtml("<p>" + linewise.join(""));
 }
 
 function copyText() {
@@ -84,6 +91,6 @@ function removeEmptyLines(){
       linewise[x] += "<br>";
     }
   }
-  outputArea.innerHTML = "<p>" + linewise.join("");
+  outputArea.innerHTML = escapeHtml("<p>" + linewise.join(""));
   inputArea.setAttribute("rows", 3);
 }
