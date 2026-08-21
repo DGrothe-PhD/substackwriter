@@ -17,12 +17,20 @@ function togglePage(){
   lucide.createIcons();
 }
 
+function escapeHtml(text) {
+  const map = { '&': '&amp;',
+     '<': '&lt;', '>': '&gt;',
+     '"': '&quot;', "'": '&#039;' };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
 function prettify(){
   let newBlogDraft = inputArea.value;
   inputArea.setAttribute("rows", 3);
   let linewise = newBlogDraft.split(/\r\n|\r|\n/);
   
   for(let x in linewise){
+    linewise[x] = escapeHtml(linewise[x]);
     if(x == linewise.length -1){
       linewise[x] += "</p>";
       break;
@@ -73,6 +81,7 @@ function removeEmptyLines(){
   let linewise = newBlogDraft.split(/\r\n|\r|\n/);
   
   for(let x in linewise){
+    linewise[x] = escapeHtml(linewise[x]);
     if(x == linewise.length -1){
       linewise[x] += "</p>";
       break;

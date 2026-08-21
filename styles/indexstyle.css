@@ -47,6 +47,17 @@ nav a:hover {
 }
 
 @media (max-width: 600px) {
+  #lang-switcher {
+    position: static;
+    transform: none;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  header {
+    flex-wrap: wrap;
+  }
+  
   nav {
     margin-top: 0.5rem;
     width: 100%;
@@ -124,6 +135,12 @@ button{
   background-color: transparent;
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0), rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.17));
+}
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 90vw;
+  }
 }
 
 .area {
