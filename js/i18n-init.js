@@ -1,10 +1,14 @@
-const lang = navigator.language.startsWith("de") ? "de" : "en";
+const installedLanguages = ["de", "en", "fr"];
+var initLang = navigator.language.substring(0,2);
+const lang = (installedLanguages.indexOf(initLang) > -1) ? 
+  installedLanguages.indexOf(initLang) : "en";
+
 
 function updateContent() {
   const localeIds = ["title", "headline", "advice",
     "prettify", "removeEmpty", "copyText", "clearAll", "countWords"];
   for(let id of localeIds){
-    document.getElementById(id).textContent = i18next.t(id);
+    document.getElementById(id).innerHTML = i18next.t(id);
   }
   document.getElementById("userinput").setAttribute("placeholder", i18next.t("typeHere"));
 }
@@ -21,6 +25,7 @@ fetch(`./locales/${lang}.json`)
   })
   .then(() => {
     updateContent();
+		if(document.getElementById(`btn-${lang}`))
     document.getElementById(`btn-${lang}`).classList.add('active');
   });
 

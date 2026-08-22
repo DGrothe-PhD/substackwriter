@@ -2,7 +2,7 @@
   "hello": "Hallo!",
   "title": "Substack writer",
   "headline": "Blog- und Post-Formatierung leicht gemacht!",
-  "advice": "⚠️ Bitte beachten! Der Text hier wird nicht gespeichert. Vor dem Schließen oder Aktualisieren der Seite bitte den Text in die Zwischenablage kopieren, um ihn weiterzuverwenden.",
+  "advice": "⚠️ Bitte beachten! Der Text hier wird nicht gespeichert.<br>Vor dem Schließen oder Aktualisieren der Seite bitte den Text in die Zwischenablage kopieren, um ihn weiterzuverwenden.",
   "prettify": "Umbrüche anpassen",
   "removeEmpty": "Leerzeilen entfernen",
   "copyText": "Text kopieren",

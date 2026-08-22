@@ -1,0 +1,12 @@
+{
+  "hello": "Allô!",
+  "title": "Substack writer",
+  "headline": "La mise en forme des blogs et des articles en toute simplicité !",
+  "advice": "⚠️ Attention ! Le texte saisi ici ne sera pas enregistré.<br>Avant de fermer ou d'actualiser la page, veuillez copier le texte dans le presse-papiers afin de pouvoir le réutiliser.",
+  "prettify": "Ajuster les sauts de ligne",
+  "removeEmpty": "Supprimer les lignes vides",
+  "copyText": "Copier le texte",
+  "clearAll": "Tout effacer",
+  "countWords": "Compter les mots",
+  "typeHere": "Tapez ici…"
+}
