@@ -2,7 +2,7 @@ const lang = navigator.language.startsWith("de") ? "de" : "en";
 
 function updateContent() {
   const localeIds = ["title", "headline", "advice",
-    "prettify", "removeEmpty", "copyText", "clearAll"];
+    "prettify", "removeEmpty", "copyText", "clearAll", "countWords"];
   for(let id of localeIds){
     document.getElementById(id).textContent = i18next.t(id);
   }
