@@ -7,6 +7,7 @@
   <meta name="keywords" content="Substack, blog post, linebreaks, mobile writing, lightweight tool" />
   <title>Substack writing formatter</title>
   <link rel="stylesheet" href="./styles/indexstyle.css">
+  <link rel="stylesheet" href="./styles/langselect.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -16,6 +17,23 @@
       <button onclick="switchLang('de')" id="btn-de">DE</button>
       <button onclick="switchLang('en')" id="btn-en">EN</button>
     </nav>
+		<form>
+    <label for="select">Custom Select box</label>
+			<button
+				role="combobox"
+				id="select"
+				value="Select"
+				aria-controls="listbox"
+				aria-haspopup="listbox"
+				tabindex="0"
+				aria-expanded="false">
+				<img src="assets/language.svg" style="height:1rem" alt="Language"></button>
+    <ul role="listbox" id="listbox">
+     <li role="option">Deutsch</li>
+     <li role="option">English</li>
+     <li role="option">Français</li>
+    </ul>
+  </form>
     <nav>
       <button id="toggle-btn" onClick="togglePage();">
         <i data-lucide="align-left"></i>
