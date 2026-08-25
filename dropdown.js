@@ -38,6 +38,9 @@ const focusCurrentOption = () => {
   });
 };
 
+let lastTypedChar = '';
+let lastMatchingIndex = 0;
+
 const handleKeyPress = (event) => {
   event.preventDefault();
   const { key } = event;
@@ -62,9 +65,35 @@ const handleKeyPress = (event) => {
         selectCurrentOption();
         break;
       default:
+        // Handle alphanumeric key presses for mini-search
+        handleAlphanumericKeyPress(key);
         break;
     }
   }
+};
+
+const handleAlphanumericKeyPress = (key) => {
+  const typedChar = key.toLowerCase();
+
+  if (lastTypedChar !== typedChar) {
+    lastMatchingIndex = 0;
+  }
+
+  const matchingOptions = Array.from(elements.options).filter((option) =>
+    option.textContent.toLowerCase().startsWith(typedChar)
+  );
+
+  if (matchingOptions.length) {
+    if (lastMatchingIndex === matchingOptions.length) {
+      lastMatchingIndex = 0;
+    }
+    let value = matchingOptions[lastMatchingIndex]
+    const index = Array.from(elements.options).indexOf(value);
+    currentOptionIndex = index;
+    focusCurrentOption();
+    lastMatchingIndex += 1;
+  }
+  lastTypedChar = typedChar;
 };
 
 const handleDocumentInteraction = (event) => {
