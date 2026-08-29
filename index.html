@@ -19,22 +19,15 @@
     </nav>
 		<form>
     <label for="select">Custom Select box</label>
-			<button
-				type="button"
-				role="combobox"
-				id="select"
-				value="Select"
-				aria-controls="listbox"
-				aria-haspopup="listbox"
-				tabindex="0"
-				aria-expanded="false">
-				<img src="assets/language.svg" style="height:1rem" alt="Language"></button>
-    <ul role="listbox" id="listbox">
-     <li role="option">Deutsch</li>
-     <li role="option">English</li>
-     <li role="option">Français</li>
-    </ul>
-  </form>
+			<button type="button" role="combobox" aria-expanded="false">
+				<img src="assets/language.svg" style="height:1rem" alt="Language">
+			</button>
+				<ul role="listbox" id="listbox">
+					<li role="option" data-lang="de">Deutsch</li>
+					<li role="option" data-lang="en">English</li>
+					<li role="option" data-lang="fr">Français</li>
+				</ul>
+		</form>
     <nav>
       <button id="toggle-btn" onClick="togglePage();">
         <i data-lucide="align-left"></i>
