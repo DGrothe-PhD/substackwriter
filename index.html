@@ -8,7 +8,7 @@
   <title>Substack writing formatter</title>
   <link rel="stylesheet" href="./styles/indexstyle.css">
   <link rel="stylesheet" href="./styles/langselect.css">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest"></script><!-- TODO ohne auskommen -->
 </head>
 <body>
   <header>
@@ -18,7 +18,7 @@
       <button onclick="switchLang('en')" id="btn-en">EN</button>
     </nav>
 		<form>
-    <label for="select">Custom Select box</label>
+    <label for="select">Language</label>
 			<button type="button" role="combobox" aria-expanded="false">
 				<img src="assets/language.svg" style="height:1rem" alt="Language">
 			</button>
@@ -61,7 +61,7 @@
   <footer>
     &copy; 2026 D. Grothe
   </footer>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/25.5.2/i18next.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/25.5.2/i18next.min.js"></script>
     <script>
       if (typeof i18next === 'undefined') {
         document.write('<script src="./libs/cloudflare_i18next.min.js"><\/script>');

@@ -138,7 +138,7 @@ const selectCurrentOption = () => {
 const selectOptionByElement = (optionElement) => {
   const optionValue = optionElement.textContent;
 
-  elements.button.textContent = optionValue;
+  //elements.button.textContent = optionValue;
   elements.options.forEach(option => {
     option.classList.remove('active');
     option.setAttribute('aria-selected', 'false');
@@ -146,8 +146,35 @@ const selectOptionByElement = (optionElement) => {
 
   optionElement.classList.add('active');
   optionElement.setAttribute('aria-selected', 'true');
-	
-	toggleDropdown();
+  
+  // Prefer data-lang attribute, fallback to common text mappings
+  const langAttr = optionElement.dataset && optionElement.dataset.lang;
+  let langToSet = langAttr ? langAttr.trim().toLowerCase() : null;
+  
+  if (!langToSet && optionValue) {
+    const text = optionValue.trim().toLowerCase();
+    const textMap = {
+      'deutsch': 'de',
+      'german': 'de',
+      'de': 'de',
+      'english': 'en',
+      'en': 'en',
+      'français': 'fr',
+      'fr': 'fr'
+      // more if needed
+    };
+    langToSet = textMap[text] || null;
+  }
+  
+  if (langToSet) {
+    if (typeof switchLang === 'function') {
+      switchLang(langToSet);
+    } else {
+      console.warn('switchLang is not defined (i18n script might be missing).');
+    }
+  }
+  
+  toggleDropdown();
 };
 
 elements.button.addEventListener('keydown', handleKeyPress);

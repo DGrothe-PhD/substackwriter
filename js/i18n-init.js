@@ -1,7 +1,6 @@
 const installedLanguages = ["de", "en", "fr"];
 var initLang = navigator.language.substring(0,2);
-const lang = (installedLanguages.indexOf(initLang) > -1) ? 
-  installedLanguages.indexOf(initLang) : "en";
+const lang = (installedLanguages.indexOf(initLang) > -1) ? initLang : "en";
 
 
 function updateContent() {
