@@ -16,7 +16,7 @@ form {
   ul{
     display: block;
     padding: .7rem .8rem;
-    width: 60%;
+    /*width: 60%;*/
     margin: 0 auto;
     text-align: left;
     background: white;
@@ -62,20 +62,14 @@ form {
       cursor: pointer;
       transition: all .3s ease-in;
       position: relative;
-      &::before {
-        content: "#";
-        vertical-align: middle;
-        font-weight: 900;
-        position: absolute;
-        right: .8rem;
-        opacity: 0;
-        transition: opacity .300s ease-out;
-      }
-      &:hover, &.current {
-        background: #e6e6e6;
+      &:hover {
+        background: papayawhip;
       }
       &.active {
         box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.7);
+        background: #8fbc8f;
+        color: white;
+        font-weight: bold;
       }
       &.active::before {
         opacity: 1;
