@@ -5,7 +5,7 @@ form {
     opacity: 0;
   }
   label {
-    display: block;
+		display:block;
     padding: .7rem .8rem;
     width: 65%;
     margin: 0 auto;

@@ -3,9 +3,17 @@
 const elements = {
   button: document.querySelector('[role="combobox"]'),
   dropdown: document.querySelector('[role="listbox"]'),
-  options: document.querySelectorAll('[role="option"]'), // add the options elements
+  options: document.querySelectorAll('[role="option"]'),
+  toggleIcon: document.getElementById('toggleIcon')
 };
+
+const iconsList = {
+  selectClosed: 'fa-chevron-down',
+  selectOpen: 'fa-chevron-up'
+}
+
 let isDropdownOpen = false;
+toggleIcon.classList.add(iconsList.selectClosed);
 let currentOptionIndex = 0;
 
 const toggleDropdown = () => {
@@ -15,8 +23,12 @@ const toggleDropdown = () => {
 
   if (isDropdownOpen) {
     focusCurrentOption();
+    toggleIcon.classList.remove(iconsList.selectClosed);
+    toggleIcon.classList.add(iconsList.selectOpen);
   } else {
     elements.button.focus(); // focus the button when the dropdown is closed just like the select element
+    toggleIcon.classList.remove(iconsList.selectOpen);
+    toggleIcon.classList.add(iconsList.selectClosed);
   }
 };
 
@@ -138,7 +150,6 @@ const selectCurrentOption = () => {
 const selectOptionByElement = (optionElement) => {
   const optionValue = optionElement.textContent;
 
-  //elements.button.textContent = optionValue;
   elements.options.forEach(option => {
     option.classList.remove('active');
     option.setAttribute('aria-selected', 'false');

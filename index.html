@@ -8,19 +8,17 @@
   <title>Substack writing formatter</title>
   <link rel="stylesheet" href="./styles/indexstyle.css">
   <link rel="stylesheet" href="./styles/langselect.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://unpkg.com/lucide@latest"></script><!-- TODO ohne auskommen -->
 </head>
 <body>
   <header>
     <h1 id="title">Substack writer</h1>
-    <nav id="lang-switcher">
-      <button onclick="switchLang('de')" id="btn-de">DE</button>
-      <button onclick="switchLang('en')" id="btn-en">EN</button>
-    </nav>
 		<form>
-    <label for="select">Language</label>
-			<button type="button" role="combobox" aria-expanded="false">
-				<img src="assets/language.svg" style="height:1rem" alt="Language">
+    <label for="languageButton">Language</label>
+			<button type="button" id="languageButton" role="combobox" aria-expanded="false">
+				<img src="assets/language.svg" style="height:1rem" alt="Language">&nbsp;
+				<i id="toggleIcon" class="fa-solid"></i>
 			</button>
 				<ul role="listbox" id="listbox">
 					<li role="option" data-lang="de">Deutsch</li>
