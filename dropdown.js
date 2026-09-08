@@ -1,0 +1,192 @@
+/* dropdown.js */
+
+const elements = {
+  button: document.querySelector('[role="combobox"]'),
+  dropdown: document.querySelector('[role="listbox"]'),
+  options: document.querySelectorAll('[role="option"]'),
+  toggleIcon: document.getElementById('toggleIcon')
+};
+
+const iconsList = {
+  selectClosed: 'fa-chevron-down',
+  selectOpen: 'fa-chevron-up'
+}
+
+let isDropdownOpen = false;
+toggleIcon.classList.add(iconsList.selectClosed);
+let currentOptionIndex = 0;
+
+const toggleDropdown = () => {
+  elements.dropdown.classList.toggle('active');
+  isDropdownOpen = !isDropdownOpen;
+  elements.button.setAttribute('aria-expanded', isDropdownOpen.toString());
+
+  if (isDropdownOpen) {
+    focusCurrentOption();
+    toggleIcon.classList.remove(iconsList.selectClosed);
+    toggleIcon.classList.add(iconsList.selectOpen);
+  } else {
+    elements.button.focus(); // focus the button when the dropdown is closed just like the select element
+    toggleIcon.classList.remove(iconsList.selectOpen);
+    toggleIcon.classList.add(iconsList.selectClosed);
+  }
+};
+
+const focusCurrentOption = () => {
+  const currentOption = elements.options[currentOptionIndex];
+
+  currentOption.classList.add('current');
+  currentOption.focus();
+	
+	// Scroll the current option into view
+  currentOption.scrollIntoView({
+    block: 'nearest',
+  });
+
+  elements.options.forEach((option, index) => {
+    if (option !== currentOption) {
+      option.classList.remove('current');
+    }
+  });
+};
+
+let lastTypedChar = '';
+let lastMatchingIndex = 0;
+
+const handleKeyPress = (event) => {
+  event.preventDefault();
+  const { key } = event;
+  const openKeys = ['ArrowDown', 'ArrowUp', 'Enter', ' '];
+
+  if (!isDropdownOpen && openKeys.includes(key)) {
+    toggleDropdown();
+
+  } else if (isDropdownOpen) {
+    switch (key) {
+      case 'Escape':
+        toggleDropdown();
+        break;
+      case 'ArrowDown':
+        moveFocusDown();
+        break;
+      case 'ArrowUp':
+        moveFocusUp();
+        break;
+      case 'Enter':
+      case ' ':
+        selectCurrentOption();
+        break;
+      default:
+        // Handle alphanumeric key presses for mini-search
+        handleAlphanumericKeyPress(key);
+        break;
+    }
+  }
+};
+
+const handleAlphanumericKeyPress = (key) => {
+  const typedChar = key.toLowerCase();
+
+  if (lastTypedChar !== typedChar) {
+    lastMatchingIndex = 0;
+  }
+
+  const matchingOptions = Array.from(elements.options).filter((option) =>
+    option.textContent.toLowerCase().startsWith(typedChar)
+  );
+
+  if (matchingOptions.length) {
+    if (lastMatchingIndex === matchingOptions.length) {
+      lastMatchingIndex = 0;
+    }
+    let value = matchingOptions[lastMatchingIndex]
+    const index = Array.from(elements.options).indexOf(value);
+    currentOptionIndex = index;
+    focusCurrentOption();
+    lastMatchingIndex += 1;
+  }
+  lastTypedChar = typedChar;
+};
+
+const handleDocumentInteraction = (event) => {
+  const isClickInsideButton = elements.button.contains(event.target);
+  const isClickInsideDropdown = elements.dropdown.contains(event.target);
+
+  if (isClickInsideButton || (!isClickInsideDropdown && isDropdownOpen)) {
+    toggleDropdown();
+  }
+
+  // Check if the click is on an option
+  const clickedOption = event.target.closest('[role="option"]');
+  if (clickedOption) {
+    selectOptionByElement(clickedOption);
+  }
+};
+
+
+const moveFocusDown = () => {
+  if (currentOptionIndex < elements.options.length - 1) {
+    currentOptionIndex++;
+  } else {
+    currentOptionIndex = 0;
+  }
+  focusCurrentOption();
+};
+
+const moveFocusUp = () => {
+  if (currentOptionIndex > 0) {
+    currentOptionIndex--;
+  } else {
+    currentOptionIndex = elements.options.length - 1;
+  }
+  focusCurrentOption();
+};
+
+const selectCurrentOption = () => {
+  const selectedOption = elements.options[currentOptionIndex];
+  selectOptionByElement(selectedOption);
+};
+
+const selectOptionByElement = (optionElement) => {
+  const optionValue = optionElement.textContent;
+
+  elements.options.forEach(option => {
+    option.classList.remove('active');
+    option.setAttribute('aria-selected', 'false');
+  });
+
+  optionElement.classList.add('active');
+  optionElement.setAttribute('aria-selected', 'true');
+  
+  // Prefer data-lang attribute, fallback to common text mappings
+  const langAttr = optionElement.dataset && optionElement.dataset.lang;
+  let langToSet = langAttr ? langAttr.trim().toLowerCase() : null;
+  
+  if (!langToSet && optionValue) {
+    const text = optionValue.trim().toLowerCase();
+    const textMap = {
+      'deutsch': 'de',
+      'german': 'de',
+      'de': 'de',
+      'english': 'en',
+      'en': 'en',
+      'français': 'fr',
+      'fr': 'fr'
+      // more if needed
+    };
+    langToSet = textMap[text] || null;
+  }
+  
+  if (langToSet) {
+    if (typeof switchLang === 'function') {
+      switchLang(langToSet);
+    } else {
+      console.warn('switchLang is not defined (i18n script might be missing).');
+    }
+  }
+  
+  toggleDropdown();
+};
+
+elements.button.addEventListener('keydown', handleKeyPress);
+document.addEventListener('click', handleDocumentInteraction);
