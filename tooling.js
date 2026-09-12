@@ -30,14 +30,16 @@ function numberOfWords(){
 	let newBlogDraft = inputArea.value;
 	feedback.innerHTML = "";
 	let wordCount = 0;
+  let testwordcount=0;
 	let linewise = newBlogDraft.split(/\r\n|\r|\n/);
 
 	for(let x of linewise){
 		if(x.length < 3) {continue;}
 		let wordseq = x.split(" ").filter(x => /[a-zA-Z0-9]/.test(x));
-		
+		let wordseqtest = x.split(" ").filter(x => /[\p{L}\p{N}]/u.test(x));
 		wordCount += wordseq.length;
+    testwordcount+= wordseqtest.length;
 	}
-	feedback.innerHTML = `${wordCount} words found.`;
+	feedback.innerHTML = `${wordCount} words or {testwordcount} found.`;
 	return wordCount;
 }
