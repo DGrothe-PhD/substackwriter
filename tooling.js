@@ -40,6 +40,6 @@ function numberOfWords(){
 		wordCount += wordseq.length;
     testwordcount+= wordseqtest.length;
 	}
-	feedback.innerHTML = `${wordCount} words or {testwordcount} found.`;
+	feedback.innerHTML = `${wordCount} words or ${testwordcount} found.`;
 	return wordCount;
 }
