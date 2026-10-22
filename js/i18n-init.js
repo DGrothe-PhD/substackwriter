@@ -2,17 +2,17 @@ const installedLanguages = ["de", "en", "fr"];
 var initLang = navigator.language.substring(0,2);
 const lang = (installedLanguages.indexOf(initLang) > -1) ? initLang : "en";
 
-var buttons = document.getElementsByTagName("button");
+//var buttons = document.getElementsByTagName("button");
 /*for (var i = 0; i < inputs.length; i++) {
   alert(inputs[i].id);
 }*/
 
 function updateContent() {
   const localeIds = ["title", "headline", "advice",
-    "prettify", "removeEmpty", "copyText", "clearAll", "countWords"];
+    "prettify", "removeEmpty", "copyText", "countWords"];
   for(let id of localeIds){
     let element=document.getElementById(id);
-    /*element.innerHTML = i18next.t(id);*/
+    element.innerHTML = i18next.t(id);
     if (element.hasAttribute("title")) {
       element.setAttribute("title", i18next.t(id));
     }
@@ -20,6 +20,23 @@ function updateContent() {
       element.setAttribute("aria-label", i18next.t(id));
     }
   }
+  
+  const buttonIds = [
+  //  "prettify", "removeEmpty", "copyText", 
+    "clearAll"
+  // , "countWords"
+  ];
+  
+  for(let id of buttonIds){
+    let element=document.getElementById(id);
+    if (element.hasAttribute("title")) {
+      element.setAttribute("title", i18next.t(id));
+    }
+    if (element.hasAttribute("aria-label")) {
+      element.setAttribute("aria-label", i18next.t(id));
+    }
+  }
+  
   document.getElementById("userinput").setAttribute("placeholder", i18next.t("typeHere"));
 }
 
