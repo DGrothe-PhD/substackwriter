@@ -18,6 +18,8 @@ or … even a substack post.
 * Prettify it, that means, let linebreaks be formatted as html `<br>`, empty lines start a next paragraph.
 * Now "copy to clipboard" and you're ready to publish your blog (after proofreading, as even apps are "only human" and can make mistakes).
 * finally "Clear All" to be ready for the next text.
+* It can also count the words! \
+Emojis, dots (…) or dashes aren't counted as they aren't words.
 
 ## Not reinventing the wheel.
 
