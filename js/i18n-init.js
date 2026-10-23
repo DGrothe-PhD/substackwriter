@@ -9,7 +9,7 @@ const lang = (installedLanguages.indexOf(initLang) > -1) ? initLang : "en";
 
 function updateContent() {
   const localeIds = ["title", "headline", "advice",
-    "prettify", "removeEmpty", "copyText", "countWords"];
+    "prettify", "removeEmpty", "countWords"];
   for(let id of localeIds){
     let element=document.getElementById(id);
     element.innerHTML = i18next.t(id);
@@ -22,8 +22,8 @@ function updateContent() {
   }
   
   const buttonIds = [
-  //  "prettify", "removeEmpty", "copyText", 
-    "clearAll"
+  //  "prettify", "removeEmpty", 
+    "copyText", "clearAll"
   // , "countWords"
   ];
   
